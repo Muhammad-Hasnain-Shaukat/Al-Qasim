@@ -103,15 +103,6 @@ export const HeroVideo: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none hidden md:block bg-gradient-to-r from-charcoal-950/75 via-charcoal-900/35 to-transparent" />
       <div className="absolute inset-0 pointer-events-none md:hidden bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/20 via-25% to-transparent" />
 
-      {/* Mobile-Only Eyebrow beneath Navbar (Positioned a little down, touching the left boundary with larger text) */}
-      <div className="absolute top-24 sm:top-28 left-0 z-20 md:hidden flex items-center justify-start pointer-events-none">
-        <div className="inline-flex items-center gap-2.5 sm:gap-3">
-          <span className="w-9 sm:w-12 h-[2px] bg-white drop-shadow-sm shrink-0" />
-          <span className="text-[13.5px] xs:text-sm sm:text-base font-semibold tracking-[0.18em] xs:tracking-[0.22em] text-white uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)] whitespace-nowrap">
-            Al Qasim &mdash; Pakistani Menswear
-          </span>
-        </div>
-      </div>
 
       {/* Desktop Hero Real HTML Content Overlay (Hidden on Mobile per specification) */}
       <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 hidden md:flex flex-col justify-center py-28">

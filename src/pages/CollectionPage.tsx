@@ -163,37 +163,40 @@ export const CollectionPage: React.FC = () => {
       </div>
 
       {/* Control Bar: Product Count, Mobile Filter Trigger, Sort Select */}
-      <div className="flex items-center justify-between py-4 border-y border-sandstone-300 mb-8">
+      <div className="flex items-center justify-between gap-2 py-3 sm:py-4 border-y border-sandstone-300 mb-8 min-w-0">
         {/* Left: Product count & Mobile filter trigger */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0 min-w-0">
           <button
             onClick={() => setIsMobileFilterOpen(true)}
-            className="lg:hidden inline-flex items-center gap-2 px-3 py-2 border border-sandstone-300 text-xs uppercase tracking-wider text-charcoal hover:border-charcoal bg-white"
+            className="lg:hidden inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 border border-sandstone-300 text-[11px] sm:text-xs uppercase tracking-wider text-charcoal hover:border-charcoal bg-white shrink-0"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>Filters {activeFiltersCount > 0 ? `(${activeFiltersCount})` : ''}</span>
           </button>
 
-          <span className="text-xs uppercase tracking-widest text-taupe-500 font-medium">
+          <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-taupe-500 font-medium whitespace-nowrap">
             {filteredProducts.length} {filteredProducts.length === 1 ? 'Garment' : 'Garments'}
           </span>
         </div>
 
-        {/* Right: Sort Dropdown */}
-        <div className="flex items-center gap-2">
+        {/* Right: Sort Dropdown with custom ChevronDown icon that never clips */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <span className="text-xs uppercase tracking-wider text-taupe-500 hidden sm:inline">
             Sort by:
           </span>
-          <select
-            value={selectedSort}
-            onChange={(e) => updateFilter('sort', e.target.value)}
-            className="bg-transparent text-xs uppercase tracking-wider text-charcoal-800 border-none focus:outline-none cursor-pointer py-1 font-medium"
-          >
-            <option value="featured">Featured</option>
-            <option value="newest">Newest Arrivals</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-          </select>
+          <div className="relative inline-flex items-center">
+            <select
+              value={selectedSort}
+              onChange={(e) => updateFilter('sort', e.target.value)}
+              className="appearance-none bg-transparent text-[11px] sm:text-xs uppercase tracking-wider text-charcoal-800 focus:outline-none cursor-pointer py-1.5 pl-1 pr-5 sm:pr-6 font-medium"
+            >
+              <option value="featured">Featured</option>
+              <option value="newest">Newest Arrivals</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+            <ChevronDown className="w-3.5 h-3.5 text-charcoal-600 pointer-events-none absolute right-0.5 top-1/2 -translate-y-1/2" />
+          </div>
         </div>
       </div>
 

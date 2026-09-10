@@ -32,7 +32,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
   };
 
   return (
-    <div className="group relative flex flex-col text-left">
+    <div className="group relative flex flex-col text-left w-full min-w-0">
       {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden bg-sandstone-100 border border-sandstone-200/60 mb-3 sm:mb-4">
         <Link to={`/product/${product.slug}`} className="block w-full h-full">
@@ -95,22 +95,22 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
       </div>
 
       {/* Product Details */}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 min-w-0">
         {/* Category & Tags (kept below image so photo is never covered) */}
-        <div className="flex items-center justify-between gap-2 mb-1">
-          <p className="text-[11px] tracking-widest uppercase text-taupe-400">
+        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 mb-1 min-w-0">
+          <p className="text-[10.5px] sm:text-[11px] tracking-widest uppercase text-taupe-400 shrink-0">
             {product.category.replace('-', ' ')}
           </p>
 
           {(product.tags.includes('new-in') || product.compareAtPrice) && (
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-1 shrink-0">
               {product.tags.includes('new-in') && (
-                <span className="text-[9px] uppercase tracking-wider font-medium text-charcoal-800 bg-sandstone-200/80 px-1.5 py-0.5 rounded-xs">
+                <span className="text-[8.5px] sm:text-[9px] uppercase tracking-wider font-medium text-charcoal-800 bg-sandstone-200/80 px-1.5 py-0.5 rounded-xs whitespace-nowrap">
                   New In
                 </span>
               )}
               {product.compareAtPrice && (
-                <span className="text-[9px] uppercase tracking-wider font-medium text-brass-700 bg-brass-100/70 px-1.5 py-0.5 rounded-xs">
+                <span className="text-[8.5px] sm:text-[9px] uppercase tracking-wider font-medium text-brass-700 bg-brass-100/70 px-1.5 py-0.5 rounded-xs whitespace-nowrap">
                   Curated Offer
                 </span>
               )}

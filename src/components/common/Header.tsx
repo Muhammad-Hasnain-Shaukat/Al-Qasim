@@ -81,14 +81,14 @@ export const Header: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
         <div className={headerBgClass}>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 sm:h-14 flex items-center justify-between">
+          <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-12 sm:h-14 flex items-center justify-between">
             
             {/* Mobile: Hamburger Button */}
             <div className="flex items-center lg:hidden z-20 shrink-0">
               <button
                 ref={menuButtonRef}
                 onClick={() => setIsMobileMenuOpen(true)}
-                className={`p-1.5 -ml-1 ${iconClass}`}
+                className={`p-1.5 -ml-0.5 ${iconClass}`}
                 aria-label="Open navigation menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -96,19 +96,19 @@ export const Header: React.FC = () => {
               </button>
             </div>
 
-            {/* Logo Emblem + Brand Wordmark: Optical center on mobile (nudged slightly left), left on desktop */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -ml-2.5 lg:ml-0 lg:static lg:translate-x-0 lg:translate-y-0 flex items-center justify-center lg:justify-start lg:flex-1 z-10">
+            {/* Logo Emblem + Brand Wordmark: Optically balanced on mobile with ample margin, left on desktop */}
+            <div className="absolute left-[calc(50%-14px)] sm:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:translate-x-0 lg:translate-y-0 flex items-center justify-center lg:justify-start lg:flex-1 z-10">
               <Link
                 to="/"
-                className="flex items-center gap-2.5 sm:gap-3 group"
+                className="flex items-center gap-2 sm:gap-3 group"
                 aria-label="Al Qasim Home"
               >
                 <img
                   src={currentLogo}
                   alt="Al Qasim Calligraphy Logo"
-                  className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-100"
+                  className="h-7 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105 brightness-100"
                 />
-                <span className="font-serif text-base sm:text-lg lg:text-xl tracking-[0.2em] uppercase font-light text-white whitespace-nowrap">
+                <span className="font-serif text-[13.5px] sm:text-lg lg:text-xl tracking-[0.16em] sm:tracking-[0.2em] uppercase font-light text-white whitespace-nowrap">
                   Al Qasim
                 </span>
               </Link>
@@ -128,8 +128,8 @@ export const Header: React.FC = () => {
               ))}
             </nav>
 
-            {/* Right: Action Icons (fully contained with comfortable padding so bag is never cut) */}
-            <div className="flex items-center justify-end space-x-3.5 sm:space-x-4 lg:space-x-5 z-20 shrink-0 lg:flex-1">
+            {/* Right: Action Icons (comfortable spacing on small screens) */}
+            <div className="flex items-center justify-end space-x-2 sm:space-x-4 lg:space-x-5 z-20 shrink-0 lg:flex-1">
               {/* Search Trigger */}
               <button
                 onClick={() => setIsSearchOpen(true)}
